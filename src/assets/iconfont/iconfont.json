@@ -1,0 +1,65 @@
+{
+  "id": "1652563",
+  "name": "association",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "657478",
+      "name": "短信",
+      "font_class": "duanxin",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "658017",
+      "name": "个人",
+      "font_class": "geren",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "658044",
+      "name": "解锁",
+      "font_class": "jiesuo",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "666883",
+      "name": "人文",
+      "font_class": "renwen",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "666885",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "666887",
+      "name": "适中",
+      "font_class": "shizhong",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "679755",
+      "name": "简约的",
+      "font_class": "jianyuede",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    },
+    {
+      "icon_id": "2674477",
+      "name": "身份证",
+      "font_class": "shenfenzheng",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    }
+  ]
+}

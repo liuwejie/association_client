@@ -1,0 +1,18 @@
+<template>
+  <div>
+    <FooterGuide/>
+  </div>
+</template>
+
+<script>
+import FooterGuide from '../components/FooterGuide'
+export default {
+  components: {
+    FooterGuide
+  }
+}
+</script>
+
+<style>
+
+</style>
