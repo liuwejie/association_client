@@ -4,11 +4,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '../Login/Login.vue'
-import MSite from '../memberpages/MSite/MSite.vue'
-import Messages from '../memberpages/Messages/Messages.vue'
-import Associations from '../memberpages/Associations/Associations.vue'
-import Friends from '../memberpages/Friends/Friends.vue'
-import Personal from '../memberpages/Personal/Personal.vue'
+import MSite from '../MSite/MSite.vue'
+import Messages from '../Messages/Messages.vue'
+import Associations from '../Associations/Associations.vue'
+import Friends from '../Friends/Friends.vue'
+import Personal from '../Personal/Personal.vue'
 
 // 声明使用插件
 Vue.use(Router)

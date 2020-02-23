@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import vant from 'vant'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+import '@/assets/iconfont/iconfont.css'
 
-Vue.use(vant)
+Vue.use(MintUI)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
