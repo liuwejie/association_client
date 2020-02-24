@@ -60,6 +60,41 @@
       "font_class": "shenfenzheng",
       "unicode": "e625",
       "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "13134921",
+      "name": "短信",
+      "font_class": "duanxin-copy",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "13134922",
+      "name": "人文",
+      "font_class": "renwen-copy",
+      "unicode": "e6e1",
+      "unicode_decimal": 59105
+    },
+    {
+      "icon_id": "13134924",
+      "name": "简约的",
+      "font_class": "jianyuede-copy",
+      "unicode": "e6e2",
+      "unicode_decimal": 59106
+    },
+    {
+      "icon_id": "13134925",
+      "name": "适中",
+      "font_class": "shizhong-copy",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "13134926",
+      "name": "身份证",
+      "font_class": "shenfenzheng-copy",
+      "unicode": "e6e4",
+      "unicode_decimal": 59108
     }
   ]
 }
