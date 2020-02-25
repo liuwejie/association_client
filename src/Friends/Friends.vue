@@ -1,6 +1,5 @@
 <template>
   <div class='Friends'>
-      我的好友
   </div>
 </template>
 

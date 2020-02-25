@@ -1,6 +1,5 @@
 <template>
   <div class='Associations'>
-      我的社团
   </div>
 </template>
 

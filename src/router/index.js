@@ -18,27 +18,45 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Login
+      component: Login,
+      meta: {
+        keepAlive: false
+      }
     },
     {
       path: '/msite',
-      component: MSite
+      component: MSite,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/messages',
-      component: Messages
+      component: Messages,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/associations',
-      component: Associations
+      component: Associations,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/friends',
-      component: Friends
+      component: Friends,
+      meta: {
+        keepAlive: true
+      }
     },
     {
       path: '/personal',
-      component: Personal
+      component: Personal,
+      meta: {
+        keepAlive: true
+      }
     }
   ]
 })
