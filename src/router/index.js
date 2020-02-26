@@ -3,12 +3,12 @@
 */
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '../Login/Login.vue'
-import MSite from '../MSite/MSite.vue'
-import Messages from '../Messages/Messages.vue'
-import Associations from '../Associations/Associations.vue'
-import Friends from '../Friends/Friends.vue'
-import Personal from '../Personal/Personal.vue'
+import Login from '../pages/login/Login.vue'
+import MSite from '../pages/memberspages/msite/MSite.vue'
+import Messages from '../pages/memberspages/messages/Messages.vue'
+import Associations from '../pages/memberspages/associations/Associations.vue'
+import Friends from '../pages/memberspages/friends/Friends.vue'
+import Personal from '../pages/memberspages/personal/personal.vue'
 
 // 声明使用插件
 Vue.use(Router)
