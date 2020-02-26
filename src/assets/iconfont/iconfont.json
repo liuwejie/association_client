@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "7766709",
+      "name": "icon_add",
+      "font_class": "icon_add",
+      "unicode": "eb8f",
+      "unicode_decimal": 60303
+    },
+    {
+      "icon_id": "8776631",
+      "name": "view",
+      "font_class": "icon-test",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "8776676",
+      "name": "view_off",
+      "font_class": "icon-test1",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
       "icon_id": "657478",
       "name": "短信",
       "font_class": "duanxin",
@@ -60,41 +81,6 @@
       "font_class": "shenfenzheng",
       "unicode": "e625",
       "unicode_decimal": 58917
-    },
-    {
-      "icon_id": "13134921",
-      "name": "短信",
-      "font_class": "duanxin-copy",
-      "unicode": "e6e0",
-      "unicode_decimal": 59104
-    },
-    {
-      "icon_id": "13134922",
-      "name": "人文",
-      "font_class": "renwen-copy",
-      "unicode": "e6e1",
-      "unicode_decimal": 59105
-    },
-    {
-      "icon_id": "13134924",
-      "name": "简约的",
-      "font_class": "jianyuede-copy",
-      "unicode": "e6e2",
-      "unicode_decimal": 59106
-    },
-    {
-      "icon_id": "13134925",
-      "name": "适中",
-      "font_class": "shizhong-copy",
-      "unicode": "e6e3",
-      "unicode_decimal": 59107
-    },
-    {
-      "icon_id": "13134926",
-      "name": "身份证",
-      "font_class": "shenfenzheng-copy",
-      "unicode": "e6e4",
-      "unicode_decimal": 59108
     }
   ]
 }

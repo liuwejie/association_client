@@ -7,13 +7,21 @@
       <div class="login-input-div">
         <i id="login-icon-user" class="iconfont icongeren"></i>
         <div class="login-input">
-          <input class="login-text" type="text" placeholder="请输入账号">
+          <input class="login-text"
+            type="text"
+            v-model="loginForm.username"
+            placeholder="请输入账号">
         </div>
       </div>
       <div class="login-input-div">
         <i id="login-icon-password" class="iconfont iconjiesuo"></i>
         <div class="login-input">
-          <input class="login-text" type="password" placeholder="请输入密码">
+          <input class="login-text"
+            :type='pwdType'
+            v-model="loginForm.password"
+            placeholder="请输入密码">
+          <i id="login-icon-eye" v-if = !showFlage @click="showPwd" class="iconfont iconicon-test"></i>
+          <i id="login-icon-eye1" v-if = showFlage @click="showPwd" class="iconfont iconicon-test1"></i>
         </div>
       </div>
       <div class="drag">
@@ -21,7 +29,7 @@
         <div class="text" onselectstart="return false;">请拖动滑块解锁</div>
         <div class="btn">&gt;&gt;</div>
       </div>
-      <button class="login-button" type="button"  @click="go">登录</button>
+      <button class="login-button" type="button"  @click="handleLogin">登录</button>
     </div>
   </div>
 </template>
@@ -30,14 +38,33 @@
 export default {
   name: 'Login',
   data () {
-    return {}
+    return {
+      loginForm: {
+        username: '',
+        password: ''
+      },
+      loading: false,
+      pwdType: 'password',
+      showFlage: true
+    }
   },
   components: {},
   created () {},
   mounted () {},
   methods: {
-    go: function () {
-      this.$router.push({path: '/msite'})
+    handleLogin: function () {
+      // this.$router.push({path: '/msite'})
+      this.$refs.loginForm.validdate(valid => {
+      })
+    },
+    showPwd () {
+      if (this.pwdType === 'password') {
+        this.pwdType = ''
+        this.showFlage = false
+      } else {
+        this.pwdType = 'password'
+        this.showFlage = true
+      }
     }
   }
 }
@@ -68,13 +95,15 @@ export default {
   height: 40px;
   width: 200px;
   border-radius: 40px;
+  margin: 1px;
 }
 .login-text{
   border: none;
   height: 36px;
-  width: 160px;
-  margin: 0 20px;
+  width: 150px;
+  margin: 0 0 0 20px;
   font-size: 15px;
+  float: left;
 }
 .login-text:focus{
   outline:none
@@ -93,38 +122,47 @@ export default {
   font-size: 30px;
   background-color: firebrick;
 }
- .drag{
-            width: 100%;
-            height: 40px;
-            line-height: 40px;
-            background-color: #e8e8e8;
-            position: relative;
-            margin:30px auto 20px auto;
-        }
-        .bg{
-            width:40px;
-            height: 100%;
-            position: absolute;
-            background-color: #75CDF9;
-        }
-        .text{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            user-select: none;
-        }
-        .btn{
-            width:40px;
-            height: 38px;
-            position: absolute;
-            border:1px solid #ccc;
-            cursor: move;
-            font-family: "宋体";
-            text-align: center;
-            background-color: #fff;
-            user-select: none;
-            color:#666;
-        }
-
+.drag{
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #e8e8e8;
+  position: relative;
+  margin:30px auto 20px auto;
+}
+.bg{
+  width:40px;
+  height: 100%;
+  position: absolute;
+  background-color: #75CDF9;
+}
+.text{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  user-select: none;
+}
+.btn{
+  width:40px;
+  height: 38px;
+  position: absolute;
+  border:1px solid #ccc;
+  cursor: move;
+  font-family: "宋体";
+  text-align: center;
+  background-color: #fff;
+  user-select: none;
+  color:#666;
+}
+#login-icon-eye{
+  margin-top: 10px;
+  float: left;
+  font-size: 20px
+}
+#login-icon-eye1{
+  margin-top: 10px;
+  float: left;
+  font-size: 20px
+}
 </style>
