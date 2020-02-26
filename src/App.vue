@@ -1,7 +1,7 @@
 <template>
   <div id='app'>
     <div class='app-page'  v-if = this.footerFlag()>
-      <Head/>
+      <HeaderGuide/>
       <router-view class='app-route'></router-view>
       <FooterGuide/>
     </div>
@@ -13,11 +13,11 @@
 
 <script>
 import FooterGuide from './components/FooterGuide.vue'
-import Head from './components/Head'
+import HeaderGuide from './components/HeaderGuide.vue'
 export default {
   components: {
     FooterGuide,
-    Head
+    HeaderGuide
   },
   methods: {
     footerFlag: function () {
