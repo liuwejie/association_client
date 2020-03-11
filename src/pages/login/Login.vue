@@ -53,9 +53,25 @@ export default {
   mounted () {},
   methods: {
     handleLogin: function () {
-      // this.$router.push({path: '/msite'})
-      this.$refs.loginForm.validdate(valid => {
-      })
+      if (this.loginForm.password === '' || this.loginForm.password === '') {
+        alert('请补全登录信息')
+      } else {
+        this.myAjax.post('/login', {
+          username: this.loginForm.username,
+          password: this.loginForm.password
+        })
+          .then((response) => {
+            console.log('dff0', response)
+            if (response.status === 200) {
+              this.$store.commit('SET_TOKEN', response.status)
+              this.$store.commit('GET_USER', this.loginForm.username)
+              this.$router.push({path: 'msite'})
+            }
+          })
+          .catch(function (error) {
+            alert(error)
+          })
+      }
     },
     showPwd () {
       if (this.pwdType === 'password') {
