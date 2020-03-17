@@ -57,13 +57,13 @@ export default {
         alert('请补全登录信息')
       } else {
         this.myAjax.post('/login', {
-          username: this.loginForm.username,
+          id: this.loginForm.username,
           password: this.loginForm.password
         })
           .then((response) => {
             console.log('dff0', response)
-            if (response.status === 200) {
-              this.$store.commit('SET_TOKEN', response.status)
+            if (response.data.code === 200) {
+              this.$store.commit('SET_TOKEN', response.data.code)
               this.$store.commit('GET_USER', this.loginForm.username)
               this.$router.push({path: 'msite'})
             }

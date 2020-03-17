@@ -13,7 +13,7 @@ const mutations = { // 直接更新state的多个方法的对象
   SET_TOKEN: (state, data) => {
     state.token = data
     window.sessionStorage.setItem('token', data)
-    console.log('dffffffffffffffffffffffffffffffff', data)
+    console.log('token', data)
   },
   // 获取用户名
   GET_USER: (state, data) => {

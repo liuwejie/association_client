@@ -71,7 +71,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const token = store.state.token
   if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
-    console.log('dfafr', token)
+    console.log('判断该路由是否需要登录权限', token)
     if (token) { // 通过vuex state获取当前的token是否存在
       next()
     } else {
