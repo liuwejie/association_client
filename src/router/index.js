@@ -10,6 +10,7 @@ import Associations from '../pages/memberspages/associations/Associations.vue'
 import Friends from '../pages/memberspages/friends/Friends.vue'
 import Personal from '../pages/memberspages/personal/personal.vue'
 import store from '../store/index'
+import chat from '../pages/memberspages/chat/chat.vue'
 
 // 声明使用插件
 Vue.use(Router)
@@ -60,6 +61,14 @@ const router = new Router({
     {
       path: '/personal',
       component: Personal,
+      meta: {
+        keepAlive: true,
+        requireAuth: true
+      }
+    },
+    {
+      path: '/chat',
+      component: chat,
       meta: {
         keepAlive: true,
         requireAuth: true

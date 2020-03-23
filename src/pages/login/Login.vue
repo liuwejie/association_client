@@ -61,7 +61,7 @@ export default {
           password: this.loginForm.password
         })
           .then((response) => {
-            console.log('dff0', response)
+            console.log('login', response)
             if (response.data.code === 200) {
               this.$store.commit('SET_TOKEN', response.data.code)
               this.$store.commit('GET_USER', this.loginForm.username)
