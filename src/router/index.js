@@ -10,7 +10,8 @@ import Associations from '../pages/memberspages/associations/Associations.vue'
 import Friends from '../pages/memberspages/friends/Friends.vue'
 import Personal from '../pages/memberspages/personal/personal.vue'
 import store from '../store/index'
-import chat from '../pages/memberspages/chat/chat.vue'
+import Chat from '../pages/memberspages/chat/chat.vue'
+import GroupChat from '../pages/memberspages/chat/groupchat.vue'
 
 // 声明使用插件
 Vue.use(Router)
@@ -21,56 +22,64 @@ const router = new Router({
     {
       path: '/',
       component: Login,
+      name: 'login',
       meta: {
-        keepAlive: false,
         requireAuth: false
       }
     },
     {
       path: '/msite',
       component: MSite,
+      name: 'msite',
       meta: {
-        keepAlive: true,
         requireAuth: true
       }
     },
     {
       path: '/messages',
       component: Messages,
+      name: 'messages',
       meta: {
-        keepAlive: true,
         requireAuth: true
       }
     },
     {
       path: '/associations',
       component: Associations,
+      name: 'associations',
       meta: {
-        keepAlive: true,
         requireAuth: true
       }
     },
     {
       path: '/friends',
       component: Friends,
+      name: 'friends',
       meta: {
-        keepAlive: true,
         requireAuth: true
       }
     },
     {
       path: '/personal',
       component: Personal,
+      name: 'personal',
       meta: {
-        keepAlive: true,
         requireAuth: true
       }
     },
     {
       path: '/chat',
-      component: chat,
+      component: Chat,
+      name: 'chat',
       meta: {
-        keepAlive: true,
+        requireAuth: true
+      }
+    },
+    {
+      path: '/groupchat',
+      component: GroupChat,
+      name: 'groupchat',
+      meta: {
         requireAuth: true
       }
     }

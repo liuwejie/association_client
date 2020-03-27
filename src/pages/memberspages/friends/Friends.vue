@@ -1,10 +1,16 @@
 <template>
   <div class='Friends'>
-    <mt-search class='search' v-model="value"></mt-search>
+    <mt-search
+      class='search'
+      v-model='searchValue'
+      >
+    </mt-search>
     <div class="friendsbody">
       <div
-      v-for="item in friends" :key="item"
-      class="friendsitem">
+      v-for="(item,index) in friends" :key="index"
+      class="friendsitem"
+      @click="chat(item)"
+      >
         <img class="friendjpg" src="../../../../static/MSite/001.jpg">
         <div class="friendtitle">{{item.remark}}</div>
       </div>
@@ -17,7 +23,8 @@ export default {
   name: 'Friends',
   data () {
     return {
-      friends: []
+      friends: [],
+      searchValue: ''
     }
   },
   components: {},
@@ -35,10 +42,21 @@ export default {
           response.data.map(item => {
             this.friends.push(item)
           })
+          console.log('好友列表：', this.friends)
+          this.$forceUpdate()
         })
         .catch(function (error) {
           alert(error)
         })
+    },
+    chat (item) {
+      this.$router.push({
+        name: 'chat',
+        params: {
+          id: item.id,
+          remark: item.remark
+        }
+      })
     }
 
   }
@@ -47,7 +65,7 @@ export default {
 <style>
 .search {
   width: 100%;
-  height: 52x;
+  height: 52px;
   border-bottom: tan 2px solid;
 }
 .friendsbody {

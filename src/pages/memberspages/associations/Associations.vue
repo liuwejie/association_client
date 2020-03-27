@@ -2,7 +2,9 @@
   <div class='Associations'>
     <mt-search class='search' v-model="value"></mt-search>
     <div class='associationbody'>
-      <div class='associationitem'>
+      <div
+      class='associationitem'
+      @click="gochat()">
         <img class="associationlogo" src="../../../../static/MSite/007.png">
         <div class="associationtitle">南师大DIY手工社</div>
       </div>
@@ -22,7 +24,7 @@ export default {
   },
   components: {},
   created () {
-    this.getAssociation()
+    // this.getAssociation()
   },
   mounted () {},
   methods: {
@@ -39,6 +41,15 @@ export default {
         .catch(function (error) {
           alert(error)
         })
+    },
+    gochat () {
+      this.$router.push({
+        name: 'groupchat',
+        params: {
+          title: '南师大DIY手工社',
+          id: '00100001'
+        }
+      })
     }
   }
 }

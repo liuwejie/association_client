@@ -45,14 +45,13 @@
   </div>
   <div class="title">社团新闻</div>
   <div class="page2">
-     <div class="item">
+     <div class="item" @click="to('https://mp.weixin.qq.com/s/ql6z5Ttmr_dmJYguJEZJBQ')">
        <div style="float: left">
-        <img src="../../../../static/MSite/001.jpg" class="jpg">
+        <img src="../../../../static/MSite/640.jpg" class="jpg">
       </div>
       <div style="float: left; padding: 2px 10px">
-        <div>活动内容: 化学讲座</div>
-        <div>活动地点-时间: 学海321</div>
-        <div>举办方: 化学协会</div>
+        <div>我们在一起</div>
+        <div>|学生社团战“疫”作品选登</div>
       </div>
 
      </div>
@@ -78,13 +77,16 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    to (e) {
+      window.location.href = e
+    }
   }
 }
 </script>
 
 <style>
-.Ms {
-}
 .page1 {
   height: 200px;
   width: 375px;
