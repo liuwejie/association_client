@@ -8,68 +8,14 @@
       <div class="item" v-if = this.flag1>
         <div class="message">
         </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
 
       </div>
       <div class="item" v-if = this.flag2>
         <div class="message"></div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
 
       </div>
       <div class="item" v-if = this.flag3>
         <div class="message"></div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
-        <div class="message">
-        </div>
 
       </div>
     </div>

@@ -114,13 +114,6 @@ export default {
           })
           messages.sort(this.compare)
           this.messageArray = messages
-          // if (this.messageArray.length === 0) {
-          //   this.messageArray = messages
-
-          // } else if (messages[messages.length - 1].mcontent !== this.messageArray[this.messageArray.length - 1].mcontent) {
-          //   this.messageArray = messages
-          //   console.log('xxxx', messages)
-          // }
         })
         .catch(function (error) {
           console.log(error)

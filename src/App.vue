@@ -39,6 +39,7 @@ body{
   height: 667px;
   width: 375px;
   overflow: hidden;
+  background-color: #EDEDED;
 }
 .app-page{
   height: 100%;

@@ -69,7 +69,7 @@ export default {
             }
           })
           .catch(function (error) {
-            alert(error)
+            console.log(error)
           })
       }
     },
