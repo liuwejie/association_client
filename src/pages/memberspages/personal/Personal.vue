@@ -8,7 +8,7 @@
     </div>
     <!-- 名片单 -->
     <div class='business-card'>
-      <img class='img'  src="" alt="">
+      <img class='img'  :src="this.headImg" alt="">
       <div class='card-div'>
         <div class='nickname'>{{basicData.snickname}}</div>
         <div class='introduction'>简介：{{basicData.sintroduction}}</div>
@@ -51,7 +51,8 @@ export default {
   data () {
     return {
       basicData: {},
-      flag: true
+      flag: true,
+      headImg: ''
     }
   },
   components: {},
@@ -61,6 +62,7 @@ export default {
       select.style.borderBottom = ' darksalmon 2px solid'
     })
     this.get()
+    this.getHeadImg()
   },
   mounted () {},
   methods: {
@@ -93,6 +95,15 @@ export default {
       } else {
         this.flag = false
       }
+    },
+    getHeadImg () {
+      this.myAjax.post('/getpersonalimg', {id: this.$store.state.user})
+        .then((response) => {
+          this.headImg = response.data.img
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   }
 }

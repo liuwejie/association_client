@@ -6,6 +6,69 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "7766710",
+      "name": "icon_addmessage",
+      "font_class": "icon_addmessage",
+      "unicode": "eb90",
+      "unicode_decimal": 60304
+    },
+    {
+      "icon_id": "7766713",
+      "name": "icon_addperson",
+      "font_class": "icon_addperson",
+      "unicode": "eb91",
+      "unicode_decimal": 60305
+    },
+    {
+      "icon_id": "7766731",
+      "name": "icon_delete",
+      "font_class": "icon_delete",
+      "unicode": "eb93",
+      "unicode_decimal": 60307
+    },
+    {
+      "icon_id": "7766753",
+      "name": "icon_likegood",
+      "font_class": "icon_likegood",
+      "unicode": "eb97",
+      "unicode_decimal": 60311
+    },
+    {
+      "icon_id": "7766791",
+      "name": "icon_share",
+      "font_class": "icon_share",
+      "unicode": "eb9e",
+      "unicode_decimal": 60318
+    },
+    {
+      "icon_id": "7766810",
+      "name": "icon_workmore",
+      "font_class": "icon_workmore",
+      "unicode": "eba1",
+      "unicode_decimal": 60321
+    },
+    {
+      "icon_id": "7772200",
+      "name": "icon_likegood_fill",
+      "font_class": "icon_likegood_fill",
+      "unicode": "ebaa",
+      "unicode_decimal": 60330
+    },
+    {
+      "icon_id": "7772233",
+      "name": "icon_setting_fill",
+      "font_class": "icon_setting_fill",
+      "unicode": "ebaf",
+      "unicode_decimal": 60335
+    },
+    {
+      "icon_id": "11474220",
+      "name": "bussiness-man",
+      "font_class": "bussiness-man",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    },
+    {
       "icon_id": "13745148",
       "name": "Right90_line",
       "font_class": "Right_line",

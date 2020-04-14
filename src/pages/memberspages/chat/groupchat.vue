@@ -5,6 +5,11 @@
         <i id='chat-back' class='iconfont iconback'></i>
       </div>
       <div class="chat-title">{{title}}</div>
+      <div
+      class="chat-man-div"
+      @click="toHomepage()">
+        <i id='chat-man' class='iconfont iconbussiness-man'></i>
+      </div>
     </div>
 
     <div
@@ -129,6 +134,14 @@ export default {
       } else {
         return 0
       }
+    },
+    toHomepage () {
+      this.$router.push({
+        name: 'groupmembers',
+        params: {
+          id: this.groupId
+        }
+      })
     }
   }
 }
@@ -148,7 +161,7 @@ export default {
   font-size: 24px;
 }
 .chat-title{
-  padding: 18px 30px 10px 30px;
+  padding: 18px 0 10px 30px;
   float: left;
   width: 250px;
   text-align: center;
@@ -261,6 +274,13 @@ export default {
   overflow-y: auto;
   border-color: rgba(82, 168, 236, 0.8);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  float: left;
+}
+#chat-man{
+  font-size: 30px;
+}
+.chat-man-div{
+  padding: 18px 0 0 10px;
   float: left;
 }
 </style>

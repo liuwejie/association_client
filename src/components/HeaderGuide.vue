@@ -2,7 +2,7 @@
   <div class='head'>
     <div class='header-body'>
       <div>
-        <img class='head-img' src="../../static/HeaderGuide/HeaderGuide.jpg" @click="goPersonal">
+        <img class='head-img' :src='img' @click="goPersonal">
       </div>
        <div class='header-title'>{{title}}</div>
     </div>
@@ -13,15 +13,27 @@
 export default {
   data () {
     return {
-      title: ''
+      title: '',
+      img: ''
     }
   },
   components: {},
-  created () {},
+  created () {
+    this.getImg()
+  },
   mounted () {},
   methods: {
     goPersonal: function () {
       this.$router.push({path: '/personal'})
+    },
+    getImg () {
+      this.myAjax.post('/getpersonalimg', {id: this.$store.state.user})
+        .then((response) => {
+          this.img = response.data.img
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   },
   watch: {

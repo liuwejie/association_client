@@ -11,7 +11,7 @@
       class="friendsitem"
       @click="chat(item)"
       >
-        <img class="friendjpg" src="../../../../static/MSite/001.jpg">
+        <img class="friendjpg" :src="item.img">
         <div class="friendtitle">{{item.remark}}</div>
       </div>
     </div>

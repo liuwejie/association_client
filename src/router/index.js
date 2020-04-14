@@ -12,6 +12,8 @@ import Personal from '../pages/memberspages/personal/personal.vue'
 import store from '../store/index'
 import Chat from '../pages/memberspages/chat/chat.vue'
 import GroupChat from '../pages/memberspages/chat/groupchat.vue'
+import GroupMembers from '../pages/memberspages/chat/groupmembers.vue'
+import Test from '../pages/memberspages/test.vue'
 
 // 声明使用插件
 Vue.use(Router)
@@ -82,10 +84,25 @@ const router = new Router({
       meta: {
         requireAuth: true
       }
+    },
+    {
+      path: '/groupmembers',
+      component: GroupMembers,
+      name: 'groupmembers',
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/test',
+      component: Test,
+      name: 'test',
+      meta: {
+        requireAuth: true
+      }
     }
   ]
 })
-
 router.beforeEach((to, from, next) => {
   const token = store.state.token
   if (to.meta.requireAuth) { // 判断该路由是否需要登录权限

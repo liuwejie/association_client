@@ -11,8 +11,63 @@
   <!-- 内容 -->
   <div class='content-div'>
     <!-- 好友动态 -->
-    <div v-show="this.flag === this.menu[0]">
-      好友动态
+    <div v-show="this.flag === this.menu[0] || this.flag === this.menu[2] ">
+      <div
+        v-for="(item,index) in tempInfo"
+        :key="index"
+        class="info">
+        <div class="info-title">
+          <img class='head-img' :src="item.headimg" alt="">
+          <div class='info-name-time'>
+            <div class='info-name'>{{item.remark}}</div>
+            <div class="info-time">发布时间:{{item.time}}</div>
+          </div>
+        </div>
+        <div
+          v-if='item.showContent'
+          class="info-content">
+          {{item.content}}
+        </div>
+        <div v-if="item.img.length === 1">
+          <img class='info-img-one' :src='item.img[0]' alt="">
+        </div>
+        <div class='info-img-one' v-else-if="item.img.length ===2">
+          <span
+            v-for="(temp,indexs) in item.img"
+            :key="indexs"
+            class='info-img-four-pan'>
+            <img class='info-img-two' :src='temp' alt="">
+          </span>
+        </div>
+        <div class='info-img-one' v-else-if="item.img.length ===4">
+          <span
+            v-for="(temp,indexs) in item.img"
+            :key="indexs"
+            class='info-img-pan'>
+            <img class='info-img-two' :src='temp' alt="">
+          </span>
+        </div>
+         <div class='info-img-one' v-else>
+          <span
+            v-for="(temp,indexs) in item.img"
+            :key="indexs"
+            class='info-img-pan'>
+            <img class='info-img-three' :src='temp' alt="">
+          </span>
+        </div>
+        <div class='info-icon'>
+          <div class='icon-div'>
+            <i id='icon1' class='iconfont iconicon_likegood'></i>
+          </div>
+          <div class='icon-div'>
+            <i id='icon2' class='iconfont iconicon_addmessage'></i>
+          </div>
+          <div class='icon-div'>
+            <i id='icon3' class='iconfont iconicon_share'></i>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- 社团新闻 -->
@@ -22,7 +77,7 @@
         :key="index"
         class='news-item'
         @click="to(item.nurl)">
-        <img class='news-item-img' src=''>
+        <img class='news-item-img' :src='item.nimg'>
         <div class='news-item-div'>
           <div class='news-item-title'>{{item.ntitle}}</div>
           <div class='news-item-text'>{{item.nintroduction}}</div>
@@ -31,9 +86,9 @@
     </div>
 
     <!-- 社团动态 -->
-    <div v-show="this.flag === this.menu[2]" class='news-item'>
+    <!-- <div v-show="this.flag === this.menu[2]" class='news-item'>
       社团动态
-    </div>
+    </div> -->
 
     <!-- 最近活动 -->
     <div  v-show="this.flag === this.menu[3]">
@@ -41,7 +96,7 @@
         v-for="(item,index) in tempActivity"
         :key="index"
         class='news-item'>
-        <img class='news-item-img' src=''>
+        <img class='news-item-img' :src='item.acimg'>
         <div class='news-item-div'>
           <div class='activity-item-title'>活动：{{item.acname}}</div>
           <div class='activity-item-title'>主办：{{item.acassociation}}</div>
@@ -62,8 +117,7 @@ export default {
   components: {
   },
   created () {
-    this.getNews()
-    this.getActivity()
+    this.getInfo('/getinfo')
     this.$nextTick(function () {
       const select = document.getElementById(this.flag)
       select.style.borderBottom = ' darksalmon 3px solid'
@@ -71,7 +125,7 @@ export default {
   },
   data () {
     return {
-      flag: 'hnews',
+      flag: 'hfriends',
       menu: [
         'hfriends',
         'hnews',
@@ -82,7 +136,8 @@ export default {
       tempFriends: [],
       tempNews: [],
       tempAssociation: [],
-      tempActivity: []
+      tempActivity: [],
+      tempInfo: []
     }
   },
   methods: {
@@ -95,11 +150,13 @@ export default {
       const select = document.getElementById(temp)
       select.style.borderBottom = ' darksalmon 3px solid'
       if (temp === this.menu[0]) {
-
+        this.tempInfo = []
+        this.getInfo('/getinfo')
       } else if (temp === this.menu[1]) {
         this.getNews()
       } else if (temp === this.menu[2]) {
-
+        this.tempInfo = []
+        this.getInfo('/getainfo')
       } else if (temp === this.menu[3]) {
         this.getActivity()
       }
@@ -126,6 +183,72 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+    },
+    getInfo (posturl) {
+      this.myAjax.post(posturl, { id: this.$store.state.user })
+        .then((response) => {
+          var info = []
+          response.data.map((item) => {
+            var temp = {}
+            temp.no = item.no
+            temp.id = item.id
+            temp.headimg = item.headimg
+            temp.remark = item.remark
+            temp.time = item.time
+            temp.img = []
+            if (item.content !== null) {
+              temp.showContent = true
+              temp.content = item.content
+            } else {
+              temp.showContent = false
+            }
+            if (item.imga !== null) {
+              temp.img.push(item.imga)
+            }
+            if (item.imgb !== null) {
+              temp.img.push(item.imgb)
+            }
+            if (item.imgc !== null) {
+              temp.img.push(item.imgc)
+            }
+            if (item.imgd !== null) {
+              temp.img.push(item.imgd)
+            }
+            if (item.imge !== null) {
+              temp.img.push(item.imge)
+            }
+            if (item.imgf !== null) {
+              temp.img.push(item.imgf)
+            }
+            if (item.imgg !== null) {
+              temp.img.push(item.imgh)
+            }
+            if (item.imgh !== null) {
+              temp.img.push(item.imgi)
+            }
+            if (item.imgi !== null) {
+              temp.img.push(item.imga)
+            }
+            info.push(temp)
+          })
+          info.sort(this.compare)
+          this.tempInfo = info
+          console.log('好友动态', this.tempInfo)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    },
+    compare (obj1, obj2) {
+      var val1 = obj1.no
+      var val2 = obj2.no
+      if (val1 < val2) {
+        return 1
+      } else if (val1 > val2) {
+        return -1
+      } else {
+        return 0
+      }
     }
   }
 }
@@ -202,4 +325,77 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.head-img{
+  height: 40px;
+  width: 40px;
+  border-radius:50%;
+  margin-top: 7px;
+  margin-left: 10px;
+  float: left;
+}
+.info{
+  width: 100%;
+  padding-bottom:20px;
+  border-bottom: rgb(212, 212, 212) 1px solid ;
+
+}
+.info-title{
+  width: 100%;
+  height: 50px;
+}
+.info-name{
+  padding: 9px 0 0 15px;
+  font-size: 15px;
+}
+.info-time{
+  font-size: 10px;
+  padding-left: 10px;
+}
+.info-name-time{
+  float: left;
+}
+.info-content{
+  margin: 2px 15px;
+  font-size: 15px;
+}
+.info-img-one{
+  margin: 2px 15px;
+  width: 345px;
+}
+.info-img-two{
+  margin: 2px;
+  width: 168px;
+  vertical-align:middle;
+}
+.info-img-three{
+  margin: 2px;
+  width: 111px;
+  vertical-align:middle;
+}
+.info-img-span{
+  display: inline-block;
+}
+.info-icon{
+  margin: 10px 15px 0 15px;
+  padding-top: 4px;
+  height: 25px;
+  border-top: rgb(212, 212, 212) 1px solid ;
+}
+.icon-div{
+  float: left;
+  width: 115px;
+  height: 25px;
+}
+#icon1{
+  font-size: 24px;
+}
+#icon2{
+  font-size: 24px;
+  padding-left: 48px;
+}
+#icon3{
+  font-size: 24px;
+  padding-left: 91px;
+}
+
 </style>
