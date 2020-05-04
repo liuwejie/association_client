@@ -14,6 +14,13 @@ import Chat from '../pages/memberspages/chat/chat.vue'
 import GroupChat from '../pages/memberspages/chat/groupchat.vue'
 import GroupMembers from '../pages/memberspages/chat/groupmembers.vue'
 import Test from '../pages/memberspages/test.vue'
+import JudgeMaster from '../pages/associationspages/judgemaster.vue'
+import AMSite from '../pages/associationspages/AMsite.vue'
+import Tool from '../pages/associationspages/tool.vue'
+import Aassociation from '../pages/associationspages/aassociation.vue'
+import Amessages from '../pages/associationspages/amessages.vue'
+import ApplyActivity from '../pages/associationspages/applyactivity.vue'
+import ApplyNews from '../pages/associationspages/applynews.vue'
 
 // 声明使用插件
 Vue.use(Router)
@@ -98,6 +105,60 @@ const router = new Router({
       component: Test,
       name: 'test',
       meta: {
+      }
+    },
+    {
+      path: '/judgemaster',
+      component: JudgeMaster,
+      name: 'judgemaster'
+      // meta: {
+      // }
+    },
+    {
+      path: '/amsite',
+      component: AMSite,
+      name: 'amsite',
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/tool',
+      component: Tool,
+      name: 'tool',
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/aassociation',
+      component: Aassociation,
+      name: 'aassociation',
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/amessages',
+      component: Amessages,
+      name: 'amessages',
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/applyactivity',
+      component: ApplyActivity,
+      name: 'applyactivity',
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/applynews',
+      component: ApplyNews,
+      name: 'applynews',
+      meta: {
         requireAuth: true
       }
     }
@@ -113,7 +174,6 @@ router.beforeEach((to, from, next) => {
       console.log('该页面需要登陆')
       next({
         path: '/'
-        // query: {redirect: to.fullPath} // 将跳转的路由path作为参数，登录成功后跳转到该路由
       })
     }
   } else {

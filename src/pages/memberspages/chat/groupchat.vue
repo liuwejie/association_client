@@ -66,7 +66,8 @@ export default {
       message: '',
       groupId: '',
       messageArray: [],
-      myid: this.$store.state.user
+      myid: this.$store.state.user,
+      timer: null
     }
   },
   components: {},
@@ -74,15 +75,16 @@ export default {
     this.title = this.$route.params.title
     this.groupId = this.$route.params.id
     console.log('进入群聊界面，群聊名称：', this.title, ',群聊id：', this.groupId)
-    setInterval(() => {
-      setTimeout(this.get(), 0)
-    }, 1000)
+    this.timer = setInterval(() => { this.get() }, 1000)
   },
   mounted () {
   },
+  beforeDestroy () {
+    clearInterval(this.timer)
+    this.timer = null
+  },
   updated () {
     this.$nextTick(function () {
-      console.log('eeeeee')
       var div = document.getElementById('scrolldIV')
       div.scrollTop = div.scrollHeight
     })

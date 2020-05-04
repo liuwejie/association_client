@@ -165,6 +165,6 @@ export default {
 .footer-tips{
   margin-top: 1px;
   margin-left: 27px;
-  font-size: 5px
+  font-size: 12px
 }
 </style>

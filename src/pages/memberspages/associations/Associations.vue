@@ -1,12 +1,15 @@
 <template>
   <div class='Associations'>
-    <mt-search class='search' v-model="value"></mt-search>
-    <div class='associationbody'>
+    <!-- <mt-search class='search' v-model="value"></mt-search> -->
+    <div class='association-body'>
       <div
-      class='associationitem'
-      @click="gochat()">
-        <img class="associationlogo" src="../../../../static/MSite/007.png">
-        <div class="associationtitle">南师大DIY手工社</div>
+      class='association-item'
+      @click="gochat(item)"
+      v-for="(item,index) in associationArray"
+      :key="index"
+      >
+        <img class="association-logo" :src="item.img">
+        <div class="association-title">{{item.name}}</div>
       </div>
       <div class='associationitem'></div>
     </div>
@@ -24,58 +27,56 @@ export default {
   },
   components: {},
   created () {
-    // this.getAssociation()
+    this.getAssociation()
   },
   mounted () {},
   methods: {
     getAssociation: function () {
-      this.myAjax.post('/getassociation', {
-        MSno: this.$store.state.user
+      this.myAjax.post('/getallassociation', {
+        msid: this.$store.state.user
       })
         .then((response) => {
-          // const temp = {
-          //   name: response.data.aname
-
-          // }
+          this.associationArray = response.data
         })
         .catch(function (error) {
-          alert(error)
+          console.log(error)
         })
-    },
-    gochat () {
-      this.$router.push({
-        name: 'groupchat',
-        params: {
-          title: '南师大DIY手工社',
-          id: '00100001'
-        }
-      })
     }
+    // gochat (item) {
+    //   this.$router.push({
+    //     name: 'groupchat',
+    //     params: {
+    //       title: item.name,
+    //       id: item.id
+    //     }
+    //   })
+    // }
   }
 }
 </script>
 <style>
-.search{
-  width: 100%;
-  height: 52px;
-}
-.associationbody {
-  height: 478px;
-  width: 100%;
-  padding-top: 10px;
+.association-body {
+  clear: both;
+  height: 500px;
+  padding: 10px 20px 0 20px;
   overflow: auto;
 }
-.associationitem {
-  padding: 8px 42px 0 42px;
-  height: 128px;
-  width: 100px;
+.association-item {
+  margin: 5px 13px 10px 13px;
+  padding: 10px;
+  height: 150px;
+  width: 120px;
   float: left;
+  background-color: #FDF5E6;
+  border: teal 0.5px solid;
+  border-radius: 5px;
 }
-.associationlogo {
-  height: 100px;
-  width: 100px;
+.association-logo {
+  height: 120px;
+  width: 120px;
 }
-.associationtitle{
-  font-size: 10px;
+.association-title{
+  font-size: 16px;
+  text-align: center;
 }
 </style>

@@ -1,11 +1,19 @@
 <template>
   <div id='app'>
-    <div class='app-page'  v-if = this.footerFlag()>
+    <!-- 社员页面头部导航尾部导航 -->
+    <div class='app-page'  v-if = this.flaga>
       <HeaderGuide/>
       <router-view class='app-route'></router-view>
       <FooterGuide/>
     </div>
-     <div v-if = !this.footerFlag()>
+    <!-- 社团页面有头尾部导航 -->
+    <div v-if = this.flagb>
+      <AHeaderGuide/>
+      <router-view class='app-route'></router-view>
+      <AFooterGuide/>
+    </div>
+    <!-- 无头尾部导航 -->
+     <div v-if = this.flagc>
       <router-view></router-view>
     </div>
 </div>
@@ -14,19 +22,46 @@
 <script>
 import FooterGuide from './components/FooterGuide.vue'
 import HeaderGuide from './components/HeaderGuide.vue'
+import AHeaderGuide from './components/AHeaderGuide.vue'
+import AFooterGuide from './components/AFooterGuide.vue'
 export default {
   components: {
     FooterGuide,
-    HeaderGuide
+    HeaderGuide,
+    AHeaderGuide,
+    AFooterGuide
+  },
+  data () {
+    return {
+      flaga: true,
+      flagb: false,
+      flagc: false
+    }
   },
   methods: {
-    footerFlag: function () {
-      var path = this.$route.path
-      if (path === '/msite' || path === '/messages' || path === '/associations' || path === '/friends') {
-        return true
-      } else {
-        return false
-      }
+    setFlag () {
+      this.flaga = false
+      this.flagb = false
+      this.flagc = false
+    }
+  },
+  watch: {
+    $route: {
+      handler (val, old) {
+        var path = this.$route.path
+        if (path === '/msite' || path === '/messages' || path === '/associations' || path === '/friends') {
+          this.setFlag()
+          this.flaga = true
+        } else if (path === '/amsite' || path === '/tool' || path === '/amessages' || path === '/aassociation') {
+          this.setFlag()
+          this.flagb = true
+        } else {
+          this.setFlag()
+          this.flagc = true
+        }
+        console.log('path', this.flaga)
+      },
+      immediate: true
     }
   }
 }

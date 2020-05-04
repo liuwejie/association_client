@@ -24,11 +24,11 @@
           <i id="login-icon-eye1" v-if = showFlage @click="showPwd" class="iconfont iconicon-test1"></i>
         </div>
       </div>
-      <div class="drag">
+      <!-- <div class="drag">
         <div class="bg"></div>
         <div class="text" onselectstart="return false;">请拖动滑块解锁</div>
         <div class="btn">&gt;&gt;</div>
-      </div>
+      </div> -->
       <button class="login-button" type="button"  @click="handleLogin">登录</button>
     </div>
   </div>

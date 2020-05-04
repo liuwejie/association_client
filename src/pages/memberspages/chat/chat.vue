@@ -61,7 +61,8 @@ export default {
       message: '',
       friendsId: '',
       messageArray: [],
-      myid: this.$store.state.user
+      myid: this.$store.state.user,
+      timer: null
     }
   },
   components: {},
@@ -69,15 +70,15 @@ export default {
     this.title = this.$route.params.remark
     this.friendsId = this.$route.params.id
     console.log('进入聊天界面，对方昵称：', this.title, ',对方id：', this.friendsId)
-    setInterval(() => {
-      setTimeout(this.get(), 0)
-    }, 1000)
+    this.timer = setInterval(() => { this.get() }, 1000)
+  },
+  beforeDestroy () {
+    this.clearTimer()
   },
   mounted () {
   },
   updated () {
     this.$nextTick(function () {
-      console.log('eeeeee')
       var div = document.getElementById('scrolldIV')
       div.scrollTop = div.scrollHeight
     })
@@ -85,6 +86,11 @@ export default {
   methods: {
     back () {
       this.$router.go(-1)
+    },
+    clearTimer () {
+      console.log('正在清除定时器！')
+      clearInterval(this.timer)
+      this.timer = null
     },
     send () {
       if (this.message !== '') {
@@ -100,6 +106,7 @@ export default {
       }
     },
     get () {
+      console.log('fff', this.timer)
       this.myAjax.post('/getmessages', {
         msendid: this.$store.state.user,
         mgetid: this.friendsId

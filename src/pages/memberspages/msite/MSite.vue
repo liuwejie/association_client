@@ -1,17 +1,16 @@
 <template>
 <div class="MSite">
-  <mt-search class='search'></mt-search>
   <!-- 横向菜单 -->
   <div class='head-menu'>
     <div id='hfriends' class='head-menu-item' @click="changemenu('hfriends')">好友动态</div>
     <div id='hnews' class='head-menu-item' @click="changemenu('hnews')">社团新闻</div>
-    <div id='hassociation' class='head-menu-item' @click="changemenu('hassociation')">社团动态</div>
+    <!-- <div id='hassociation' class='head-menu-item' @click="changemenu('hassociation')">社团动态</div> -->
     <div id='hactivity' class='head-menu-item' @click="changemenu('hactivity')">最近活动</div>
   </div>
   <!-- 内容 -->
   <div class='content-div'>
     <!-- 好友动态 -->
-    <div v-show="this.flag === this.menu[0] || this.flag === this.menu[2] ">
+    <div v-show="this.flag === this.menu[0]">
       <div
         v-for="(item,index) in tempInfo"
         :key="index"
@@ -91,7 +90,7 @@
     </div> -->
 
     <!-- 最近活动 -->
-    <div  v-show="this.flag === this.menu[3]">
+    <div  v-show="this.flag === this.menu[2]">
       <div
         v-for="(item,index) in tempActivity"
         :key="index"
@@ -129,7 +128,6 @@ export default {
       menu: [
         'hfriends',
         'hnews',
-        'hassociation',
         'hactivity'
       ],
       content: [],
@@ -155,9 +153,6 @@ export default {
       } else if (temp === this.menu[1]) {
         this.getNews()
       } else if (temp === this.menu[2]) {
-        this.tempInfo = []
-        this.getInfo('/getainfo')
-      } else if (temp === this.menu[3]) {
         this.getActivity()
       }
     },
@@ -255,27 +250,23 @@ export default {
 </script>
 
 <style>
-.search{
-  width: 100%;
-  height: 52px;
-}
 .head-menu{
   width: 100%;
   height: 40px;
   border-bottom: gray 2px solid;
+  background-color:#FAF0E6;
 
 }
 .head-menu-item{
-  width: 18%;
+  width: 125px;
   height: 25px;
   float: left;
-  padding-left: 4%;
-  padding-right: 3%;
   padding-top: 10px;
+  text-align: center;
 }
 .content-div{
   width: 100%;
-  height: 436px;
+  height: 485px;
   overflow: auto;
 }
 .news-item{

@@ -1,10 +1,5 @@
 <template>
   <div class='Friends'>
-    <mt-search
-      class='search'
-      v-model='searchValue'
-      >
-    </mt-search>
     <div class="friendsbody">
       <div
       v-for="(item,index) in friends" :key="index"
@@ -63,22 +58,17 @@ export default {
 }
 </script>
 <style>
-.search {
-  width: 100%;
-  height: 52px;
-  border-bottom: tan 2px solid;
-}
 .friendsbody {
-  height: 478px;
-  width: 100%;
-  padding-top: 10px;
+  height: 530px;
+  padding: 10px 10px 0 10px;
   overflow: auto;
+  clear: both;
 }
 .friendsitem {
   height: 50px;
   width: 100%;
-  border: teal 1px solid;
-  border-radius: 10px;
+  border: teal 0.5px solid;
+  border-radius: 5px;
 }
 .friendjpg {
   height: 40px;

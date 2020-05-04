@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 const state = { // 状态对象
   user: window.sessionStorage.getItem('user'),
-  token: window.sessionStorage.getItem('token')
+  token: window.sessionStorage.getItem('token'),
+  association: window.sessionStorage.getItem('association')
 }
 const mutations = { // 直接更新state的多个方法的对象
   // 将token保存到sessionStorage里，token表示登陆状态
@@ -26,8 +27,16 @@ const mutations = { // 直接更新state的多个方法的对象
     // 登出的时候要清除token
     state.token = null
     state.user = null
+    state.association = null
     window.sessionStorage.removeItem('token')
     window.sessionStorage.removeItem('user')
+    window.sessionStorage.removeItem('association')
+  },
+  // 获取用户名
+  GET_ASSOCIATION: (state, data) => {
+    // 把用户名存起来
+    state.association = data
+    window.sessionStorage.setItem('association', data)
   }
 }
 
