@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "14401646",
+      "name": "checkmark",
+      "font_class": "checkmark",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
       "icon_id": "7766710",
       "name": "icon_addmessage",
       "font_class": "icon_addmessage",

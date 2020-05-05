@@ -74,7 +74,7 @@ body{
   height: 667px;
   width: 375px;
   overflow: hidden;
-  background-color: #EDEDED;
+  background-color: #FDF5E6;
 }
 .app-page{
   height: 100%;

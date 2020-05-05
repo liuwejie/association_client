@@ -99,15 +99,17 @@ export default {
   float: left;
   font-size: 40px;
   margin-right: 10px;
+  color: teal;
 }
 #login-icon-password{
   float: left;
   font-size: 40px;
   margin-right: 10px;
+  color: teal;
 }
 .login-input{
   float: left;
-  border: 1px grey solid;
+  border: 2px teal solid;
   height: 40px;
   width: 200px;
   border-radius: 40px;
@@ -115,11 +117,12 @@ export default {
 }
 .login-text{
   border: none;
-  height: 36px;
+  height: 32px;
   width: 150px;
-  margin: 0 0 0 20px;
+  margin: 2px 2px 2px 20px;
   font-size: 15px;
   float: left;
+  background-color: #FDF5E6;
 }
 .login-text:focus{
   outline:none
@@ -131,7 +134,7 @@ export default {
 .login-button{
   margin: 0 30px;
   height: 40px;
-  width: 200px;
+  width: 210px;
   border-radius: 40px;
   color: white;
   font-family: "宋体";

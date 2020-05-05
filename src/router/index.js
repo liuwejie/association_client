@@ -21,6 +21,7 @@ import Aassociation from '../pages/associationspages/aassociation.vue'
 import Amessages from '../pages/associationspages/amessages.vue'
 import ApplyActivity from '../pages/associationspages/applyactivity.vue'
 import ApplyNews from '../pages/associationspages/applynews.vue'
+import NewInfo from '../pages/memberspages/NewInfo.vue'
 
 // 声明使用插件
 Vue.use(Router)
@@ -158,6 +159,14 @@ const router = new Router({
       path: '/applynews',
       component: ApplyNews,
       name: 'applynews',
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/newInfo',
+      component: NewInfo,
+      name: ' newinfo',
       meta: {
         requireAuth: true
       }
